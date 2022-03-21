@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://character/Character.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 7.0
+height = 4.0
+
+[node name="character" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
+shape = SubResource( 19 )
+
+[node name="attack_area" type="Area2D" parent="."]
+position = Vector2( 2, -5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="attack_area"]
+polygon = PoolVector2Array( 6, -3, 6, 5, -2, 4, -8, 2, -11, -3 )
